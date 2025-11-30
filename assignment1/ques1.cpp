@@ -35,6 +35,7 @@ int main() {
   for(i=0; i<size+1; i++){
     cout<<arrc[i]<<" ";
   }
+  size++;
   cout<<'\n';
   //DELETE+LINEAR SEARCH
   int num2, index2;
@@ -44,14 +45,12 @@ int main() {
     if(arrc[i]==num2){
       index=i;
       break;
-    } else{
-      cout<<"Element not found! \n";
-      break;
     }
   }
   for(i=index; i<size+1; i++){
     arrc[i]=arrc[i+1];
   }
+  size--;
   cout<<"Your array is: ";
   for(i=0; i<size; i++){
     cout<<arrc[i]<<" ";
