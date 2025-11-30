@@ -1,9 +1,9 @@
 #include <iostream>
-#include<bit/stdc++.h>
+#include<bits/stdc++.h>
 #include <queue>
 using namespace std;
 
-class stack {
+class mystack {
     queue<int> q;
 public:
     void push(int x) {
@@ -28,7 +28,7 @@ public:
 };
 
 int main() {
-    stack st;
+    mystack st;
     st.push(10); 
     st.push(20); 
     st.push(30);
