@@ -1,22 +1,21 @@
-#include<bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-string remVowel(string s){
-  vector<char> vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
-
-  for(int i=0; i<s.length(); i++){
-    if(find(vowels.begin(), vowels.end(), s[i]) != vowels.end()){
-      s = s.replace(i, 1,"");
-      i-=1;
-    }
-  }
-  return s;
-}
-
 int main() {
-  string s = "This is Assignment 2 of data structures lab";
- 
-  cout<<remVowel(s)<<endl;
+    char str[100];
+    char result[100];
+    int j = 0;
+    cout << "Enter a string: ";
+    cin.getline(str, 100);
+    for (int i = 0; str[i] != '\0'; i++) {
+        char c = str[i];
+        if (!(c=='a' || c=='e' || c=='i' || c=='o' || c=='u' ||
+              c=='A' || c=='E' || c=='I' || c=='O' || c=='U')) {
+            result[j++] = c;
+        }
+    }
+    result[j] = '\0';
+    cout << "String without vowels: " << result;
 
-  return 0;
+    return 0;
 }
