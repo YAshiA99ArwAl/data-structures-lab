@@ -1,28 +1,30 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
+struct Triple {
+    int r, c, v;
+};
+
+bool cmp(const Triple &a, const Triple &b) {
+    if (a.r == b.r) return a.c < b.c;
+    return a.r < b.r;
+}
+
 int main() {
-  int sparse[][3] = {{5, 4, 7}, {0,2,2}, {0,3,3}, {1,1,1},{2,2,15},{3,3,4}, {4,1,25}, {4,2,1}};
-  int values = sizeof(sparse)/sizeof(sparse[0]);
+    Triple sparse[] = {
+        {5, 4, 7}, {0,2,2}, {0,3,3}, {1,1,1},
+        {2,2,15}, {3,3,4}, {4,1,25}, {4,2,1}
+    };
 
-  // exchange
-  for(int i=0; i<values; i++){
-    swap(sparse[i][0], sparse[i][1]);
-  }
-
-  //sort
-  sort(sparse, sparse+values, [](const int a[3], const int b[3]) {
-    if (a[0]==b[0]) return a[1] <b[1];
-    return a[0] < b[0];
-  });
-
-  //display
-  for(int i=0; i<values; i++){
-    for(int j=0; j<3; j++){
-      cout<<sparse[i][j]<<" ";
+    int values = sizeof(sparse) / sizeof(sparse[0]);
+    for (int i = 0; i < values; i++) 
+        swap(sparse[i].r, sparse[i].c);
+    sort(sparse, sparse + values, cmp);
+    for (int i = 0; i < values; i++) {
+        cout << sparse[i].r << " "
+             << sparse[i].c << " "
+             << sparse[i].v << endl;
     }
-    cout<<endl;
-  }
 
-  return 0;
+    return 0;
 }
